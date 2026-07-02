@@ -13,13 +13,13 @@
 
   // Mobile nav
   var toggle = document.querySelector(".nav-toggle");
-  var links = document.querySelector(".nav-links");
-  if (toggle && links) {
+  var menu = document.querySelector(".nav-menu");
+  if (toggle && menu) {
     toggle.addEventListener("click", function () {
-      links.classList.toggle("open");
+      menu.classList.toggle("open");
     });
-    links.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") links.classList.remove("open");
+    menu.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") menu.classList.remove("open");
     });
   }
 
