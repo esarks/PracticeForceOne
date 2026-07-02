@@ -52,6 +52,8 @@ console.log("1/5 creating version…");
 // HTML/CSS/JS: always revalidate so redeploys show immediately. Images: 1-day cache.
 const versionConfig = {
   config: {
+    cleanUrls: true,
+    trailingSlashBehavior: "REMOVE",
     headers: [
       { glob: "**", headers: { "Cache-Control": "no-cache, max-age=0, must-revalidate" } },
       { glob: "**/*.@(png|jpg|jpeg|gif|svg|webp|ico|woff2)", headers: { "Cache-Control": "public, max-age=86400" } },
@@ -95,3 +97,4 @@ const rel = await jfetch(`${API}/sites/${SITE}/releases?versionName=${encodeURIC
 });
 console.log("\n✅ LIVE:", rel.version?.name || "released");
 console.log("   https://practiceforceone.web.app");
+process.exit(0); // force clean exit (avoids intermittent libuv teardown assertion on Windows)
