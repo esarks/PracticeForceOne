@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PracticeForceOne — Full Feature Catalog</title>
+<meta name="description" content="The complete PracticeForceOne feature catalog: patient portal, portal users, patient chart, insurance, medications, scheduling, Kanban, encounters, coding, revenue cycle, clinical follow-up, staging, and admin/security." />
+<link rel="icon" type="image/png" href="assets/img/pf1-logo-mark.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img src="assets/img/pf1-logo-mark.png" alt="PracticeForceOne" />
+      <span>PracticeForceOne<small class="brand-tag">Powering Better Care</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#platform">Platform</a></li>
+      <li><a href="index.html#kanban">Command Center</a></li>
+      <li><a href="index.html#ai">AI</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="compare.html">Compare</a></li>
+      <li><a href="features.html">Features</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-outline" href="index.html#pricing">Sign in</a>
+      <a class="btn btn-primary" href="index.html#demo">Book a demo</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Features</div>
+    <h1>The full feature catalog</h1>
+    <p>PracticeForceOne owns the clinic workflow from first patient contact through final payment. Here's everything each module does.</p>
+  </div>
+</section>
+
+<!-- Domain map -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Release feature map</span>
+      <h2>Twelve connected domains</h2>
+      <p>Source records own workflow state — the board reflects the truth, never a separate manual copy of it.</p>
+    </div>
+    <div class="reveal">
+      <table class="feature-table">
+        <thead><tr><th>Domain</th><th>Current feature scope</th></tr></thead>
+        <tbody>
+          <tr><td>Patient access</td><td>Portal registration, clinic selection, email confirmation, portal check-in, kiosk/iPad code flow, Dynamic Forms, patient-safe instructions</td></tr>
+          <tr><td>Portal Users</td><td>Registration review, portal user review, check-in review, submitted forms, insurance/card evidence, medication evidence, chart creation & linking</td></tr>
+          <tr><td>Patient Chart</td><td>Demographics, contacts, insurance, Medicare, card images, portal evidence, medications, allergies, problems, documents, forms, encounters, chart review</td></tr>
+          <tr><td>Insurance</td><td>Medicare, primary, secondary, payer lookup, Other-payer entry, payer creation, Use Medicare, subscriber fields, verification workflow</td></tr>
+          <tr><td>Medication</td><td>RxNorm-backed search, code/name/synonym/description matching, contains & all-token matching, multiple matches, add/edit/reconcile</td></tr>
+          <tr><td>Calendar</td><td>Provider availability, full-day 15-minute slots, openings, create/modify appointment, save changes, Kanban return focus</td></tr>
+          <tr><td>Kanban</td><td>Source-record patient-to-payment board with front-desk, clinical, provider, coding, billing, follow-up, blocked & owner views</td></tr>
+          <tr><td>Encounter</td><td>Rooming, intake, provider documentation, save/draft, portal import, ready-to-sign, sign, undo-sign, corrected/superseded, coding handoff</td></tr>
+          <tr><td>Charge Review</td><td>ICD/CPT/HCPCS lookup, description search, multiple matches, NCCI, MUE, charge optimization, ready-to-claim</td></tr>
+          <tr><td>RCM</td><td>Claims, scrub, EDI/mock clearinghouse, payer response, payments/ERA, secondary billing, denials, appeals, A/R, patient balance</td></tr>
+          <tr><td>Clinical follow-up</td><td>Care-plan-lite tasks, order/result/procedure readiness, due dates, assignees, complete/cancel actions</td></tr>
+          <tr><td>Admin & security</td><td>Organizations, practices, users, providers, payers, settings, logs, audit, idle timeout, JWT, PHI controls, tenant isolation</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Principles -->
+<section class="section" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Core principles</span>
+      <h2>The rules that keep it honest</h2>
+    </div>
+    <div class="cards">
+      <div class="card reveal"><h3>Source records own state</h3><p>Kanban cards reflect real source records. The board never becomes a separate manual truth that drifts from reality.</p></div>
+      <div class="card reveal"><h3>Patient data is evidence</h3><p>Portal submissions stay patient-submitted evidence until reviewed, imported, linked, or promoted by staff.</p></div>
+      <div class="card reveal"><h3>No faked progress</h3><p>Scheduling ≠ arrival. Arrival ≠ rooming. Rooming ≠ documentation. Unsigned docs ≠ coding readiness. Every state is earned.</p></div>
+      <div class="card reveal"><h3>Evidence stays visible</h3><p>Insurance, Medicare, medication evidence, and portal forms remain visible to staff until reviewed and acted on.</p></div>
+      <div class="card reveal"><h3>Right work, right surface</h3><p>Portal review, chart review, scheduling, daily work, documentation, coding, and billing each have a purpose-built surface.</p></div>
+      <div class="card reveal"><h3>Tenant isolation</h3><p>Every read and write is scoped to the practice or org. Complete data separation across practices, always.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Deep module detail -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Module detail</span>
+      <h2>What each surface owns</h2>
+    </div>
+    <div class="cards cards--2">
+      <div class="card reveal"><h3>Patient Portal — Registration</h3><ul>
+        <li>Clinic selection so requests route correctly</li>
+        <li>Legal name, DOB, demographics, responsible party</li>
+        <li>Email confirmation & reason for visit</li>
+        <li>Medicare (MBI guidance), primary & secondary insurance</li>
+        <li>Insurance card image capture</li>
+        <li>Medication & allergy capture</li>
+        <li>Dynamic Forms registration documents</li>
+        <li>Duplicate-aware handling — no uncontrolled duplicates</li>
+      </ul></div>
+      <div class="card reveal"><h3>Patient Portal — Check-In</h3><ul>
+        <li>Appointment-specific check-in code flow</li>
+        <li>Birth-date validation for kiosk/iPad</li>
+        <li>Visit reason & symptom update capture</li>
+        <li>Contact/consent confirmation</li>
+        <li>Medicare, primary & secondary review</li>
+        <li>Card image upload or recall</li>
+        <li>Medication & allergy updates + Dynamic Forms</li>
+        <li>Packet routing to Chart & Kanban; duplicate prevention</li>
+      </ul></div>
+      <div class="card reveal"><h3>Portal Users Queue</h3><ul>
+        <li>Review pending registrations & active portal users</li>
+        <li>Review submitted check-in packets & forms</li>
+        <li>Review establishment requests</li>
+        <li>Show Medicare, insurance, card & medication evidence</li>
+        <li>Create a chart from a registration</li>
+        <li>Link a portal user to an existing chart</li>
+        <li>Preserve evidence until an explicit staff action</li>
+      </ul></div>
+      <div class="card reveal"><h3>Patient Chart</h3><ul>
+        <li>Demographics, contacts & responsible party</li>
+        <li>Insurance, Medicare & card images</li>
+        <li>Portal evidence, forms & check-in packets</li>
+        <li>Medications, allergies & problems</li>
+        <li>Documents & encounter history</li>
+        <li>Portal Forms Reviewed & Chart Reviewed states</li>
+        <li>Medication reconciliation & insurance editing</li>
+      </ul></div>
+      <div class="card reveal"><h3>Encounter Workspace</h3><ul>
+        <li>Rooming & intake</li>
+        <li>Provider documentation, save & draft</li>
+        <li>Portal-form import into notes</li>
+        <li>Ready-to-sign & signature</li>
+        <li>Undo-sign, corrected & superseded documentation</li>
+        <li>Clean handoff to coding</li>
+      </ul></div>
+      <div class="card reveal"><h3>Coding & Charge Review</h3><ul>
+        <li>ICD / CPT / HCPCS lookup</li>
+        <li>Description search — contains & all-token matching</li>
+        <li>Multiple relevant matches (search "office" → E/M codes)</li>
+        <li>NCCI edits & MUE checks</li>
+        <li>Charge optimization</li>
+        <li>Ready-to-claim workflow</li>
+      </ul></div>
+      <div class="card reveal"><h3>Revenue Cycle Management</h3><ul>
+        <li>Claim build & scrub</li>
+        <li>EDI / mock clearinghouse & payer workflow</li>
+        <li>Payer response & payments / ERA</li>
+        <li>Secondary billing</li>
+        <li>Denials, appeals & A/R follow-up</li>
+        <li>Patient balances & reporting</li>
+      </ul></div>
+      <div class="card reveal"><h3>Staging, Evidence & Admin</h3><ul>
+        <li>Seeded demo practice & reference-code seed/promote</li>
+        <li>Import preview, clear & reset</li>
+        <li>Organizations, practices, users, providers, payers</li>
+        <li>Settings & security controls</li>
+        <li>Audit logs, runtime logs & UAT evidence</li>
+        <li>Role-based access, JWT, idle timeout & PHI controls</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <span class="eyebrow eyebrow--light">See it in action</span>
+      <h2>Every feature, on one live board</h2>
+      <p>Book a walkthrough and we'll show you the full patient-to-payment workflow with your own scenarios.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary btn-lg" href="mailto:demo@practiceforceone.com?subject=PracticeForceOne%20Feature%20Walkthrough">Book a live demo</a>
+        <a class="btn btn-ghost btn-lg" href="compare.html">Compare vendors</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-bottom" style="border:0">
+      <span>© <span id="year">2026</span> PracticeForceOne™. All rights reserved.</span>
+      <span>Healthcare Technology. Powering Better Care.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
