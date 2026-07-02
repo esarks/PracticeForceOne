@@ -48,8 +48,19 @@ for (const [dpath, lpath] of Object.entries(FILES)) {
 }
 
 console.log("1/5 creating version…");
+// Header config applied at the version level (REST deploy does NOT read firebase.json).
+// HTML/CSS/JS: always revalidate so redeploys show immediately. Images: 1-day cache.
+const versionConfig = {
+  config: {
+    headers: [
+      { glob: "**", headers: { "Cache-Control": "no-cache, max-age=0, must-revalidate" } },
+      { glob: "**/*.@(png|jpg|jpeg|gif|svg|webp|ico|woff2)", headers: { "Cache-Control": "public, max-age=86400" } },
+    ],
+  },
+};
 const version = await jfetch(`${API}/sites/${SITE}/versions`, {
-  method: "POST", headers: H({ "Content-Type": "application/json" }), body: "{}",
+  method: "POST", headers: H({ "Content-Type": "application/json" }),
+  body: JSON.stringify(versionConfig),
 });
 console.log("   version:", version.name);
 
