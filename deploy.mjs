@@ -1,9 +1,9 @@
 // One-shot Firebase Hosting deploy via REST API using a gcloud OAuth access token.
 // Usage: TOKEN=$(gcloud auth print-access-token) node deploy.mjs
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync, statSync } from "node:fs";
 import { gzipSync } from "node:zlib";
 import { createHash } from "node:crypto";
-import { resolve } from "node:path";
+import { resolve, join } from "node:path";
 
 const TOKEN = process.env.TOKEN;
 const SITE = "practiceforceone";
@@ -17,17 +17,19 @@ const H = (extra = {}) => ({
   ...extra,
 });
 
-// Deploy paths -> local files
-const FILES = {
-  "/index.html": "index.html",
-  "/compare.html": "compare.html",
-  "/features.html": "features.html",
-  "/assets/css/styles.css": "assets/css/styles.css",
-  "/assets/js/main.js": "assets/js/main.js",
-  "/assets/img/pf1-logo-mark.png": "assets/img/pf1-logo-mark.png",
-  "/assets/img/pf1-logo-alt.png": "assets/img/pf1-logo-alt.png",
-  "/assets/img/pf1-logo-tagline.png": "assets/img/pf1-logo-tagline.png",
-};
+// Auto-discover deployable files: all *.html at root + everything under assets/
+const FILES = {};
+function addDir(rel) {
+  for (const name of readdirSync(resolve(rel))) {
+    const child = `${rel}/${name}`;
+    if (statSync(resolve(child)).isDirectory()) addDir(child);
+    else FILES[`/${child}`] = child;
+  }
+}
+for (const name of readdirSync(resolve("."))) {
+  if (/\.html$/.test(name) && statSync(resolve(name)).isFile()) FILES[`/${name}`] = name;
+}
+addDir("assets");
 
 async function jfetch(url, opts) {
   const r = await fetch(url, opts);

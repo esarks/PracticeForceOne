@@ -106,10 +106,12 @@ p { color: var(--slate); }
   box-shadow: var(--shadow-sm); padding: 10px 0;
 }
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.brand { display: flex; align-items: center; gap: 11px; font-weight: 800; font-size: 1.15rem; color: #fff; }
-.brand img { height: 40px; width: auto; }
-.site-header.scrolled .brand { color: var(--ink); }
-.brand .brand-tag { font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--blue-400); display: block; margin-top: -3px; }
+.brand { display: flex; align-items: center; }
+.brand img { height: 58px; width: auto; transition: height .3s ease; }
+.site-header.scrolled .brand img { height: 46px; }
+.brand .logo-dark { display: none; }
+.site-header.scrolled .brand .logo-light { display: none; }
+.site-header.scrolled .brand .logo-dark { display: block; }
 
 .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
 .nav-links a { font-weight: 600; font-size: .95rem; color: rgba(255,255,255,.86); transition: .2s; }
@@ -137,6 +139,7 @@ p { color: var(--slate); }
   position: relative; display: grid; grid-template-columns: 1.05fr .95fr;
   gap: 56px; align-items: center;
 }
+.hero-logo { width: min(86%, 440px); margin-bottom: 26px; filter: drop-shadow(0 10px 30px rgba(0,0,0,.25)); }
 .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; letter-spacing: -.03em; }
 .hero h1 span { display: block; }
 .hero-lead { font-size: 1.22rem; color: rgba(230,240,255,.86); margin: 24px 0 34px; max-width: 560px; }
@@ -344,7 +347,8 @@ p { color: var(--slate); }
 /* ---------- Footer ---------- */
 .footer { background: var(--navy-900); color: rgba(215,228,248,.7); padding: 66px 0 30px; }
 .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 44px; }
-.footer .brand { color: #fff; margin-bottom: 16px; }
+.footer .brand { color: #fff; margin-bottom: 18px; }
+.footer .brand img { height: 56px; width: auto; }
 .footer-col h5 { color: #fff; font-size: .95rem; margin-bottom: 16px; letter-spacing: .02em; }
 .footer-col ul { list-style: none; }
 .footer-col ul li { margin-bottom: 10px; }
