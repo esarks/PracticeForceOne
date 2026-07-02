@@ -43,7 +43,7 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 130px; }
+html { scroll-behavior: smooth; scroll-padding-top: 160px; }
 
 body {
   font-family: var(--font);
@@ -108,8 +108,8 @@ p { color: var(--slate); }
 .nav { display: flex; flex-direction: column; align-items: center; gap: 14px; position: relative; }
 .site-header.scrolled .nav { gap: 9px; }
 .brand { display: flex; align-items: center; }
-.brand img { height: 74px; width: auto; transition: height .3s ease; }
-.site-header.scrolled .brand img { height: 50px; }
+.brand img { height: clamp(120px, 14vw, 195px); width: auto; transition: height .3s ease; }
+.site-header.scrolled .brand img { height: 68px; }
 .brand .logo-dark { display: none; }
 .site-header.scrolled .brand .logo-light { display: none; }
 .site-header.scrolled .brand .logo-dark { display: block; }
@@ -128,7 +128,7 @@ p { color: var(--slate); }
 /* ---------- Hero ---------- */
 .hero {
   position: relative; background: var(--grad-deep); color: #fff;
-  padding: 210px 0 110px; overflow: hidden;
+  padding: 320px 0 110px; overflow: hidden;
 }
 .hero::before {
   content: ""; position: absolute; inset: 0;
@@ -362,7 +362,7 @@ p { color: var(--slate); }
 .footer-badge { border: 1px solid rgba(255,255,255,.16); border-radius: 8px; padding: 5px 12px; font-size: .74rem; font-weight: 600; color: rgba(215,228,248,.8); }
 
 /* ---------- Page hero (secondary pages) ---------- */
-.page-hero { background: var(--grad-deep); color: #fff; padding: 200px 0 80px; text-align: center; position: relative; overflow: hidden; }
+.page-hero { background: var(--grad-deep); color: #fff; padding: 300px 0 80px; text-align: center; position: relative; overflow: hidden; }
 .page-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(600px 360px at 70% 10%, rgba(63,160,255,.28), transparent 60%); }
 .page-hero > * { position: relative; }
 .page-hero h1 { font-size: clamp(2.3rem, 4.6vw, 3.4rem); font-weight: 900; }
@@ -397,5 +397,6 @@ p { color: var(--slate); }
   .cards, .cards--2, .pricing-grid, .steps, .footer-grid { grid-template-columns: 1fr; }
   .section { padding: 66px 0; }
   .cta-band, .roi { padding: 40px 24px; }
-  .hero { padding: 160px 0 80px; }
+  .hero { padding: 200px 0 80px; }
+  .page-hero { padding: 190px 0 64px; }
 }
