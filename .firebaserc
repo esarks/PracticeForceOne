@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "claimsprocessing"
+  },
+  "targets": {
+    "claimsprocessing": {
+      "hosting": {
+        "practiceforceone": [
+          "practiceforceone"
+        ]
+      }
+    }
+  }
+}
