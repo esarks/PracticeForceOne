@@ -54,6 +54,15 @@ const versionConfig = {
   config: {
     cleanUrls: true,
     trailingSlashBehavior: "REMOVE",
+    // Patients type the .com — the public brand — but the portal lives on the .net application
+    // domain, so /portal on this site was a 404 and the home page linked to the portal nowhere.
+    // The only way in was the exact .net URL, with its trailing slash, handed over by the clinic.
+    // These redirects must live HERE and not only in firebase.json: this REST deploy does not read
+    // firebase.json (see the note above), so a redirect declared only there would silently do nothing.
+    redirects: [
+      { glob: "/portal", location: "https://practiceforceone.net/portal/", statusCode: 301 },
+      { glob: "/portal/**", location: "https://practiceforceone.net/portal/", statusCode: 301 },
+    ],
     headers: [
       { glob: "**", headers: { "Cache-Control": "no-cache, max-age=0, must-revalidate" } },
       { glob: "**/*.@(png|jpg|jpeg|gif|svg|webp|ico|woff2)", headers: { "Cache-Control": "public, max-age=86400" } },

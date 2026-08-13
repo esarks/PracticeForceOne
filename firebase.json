@@ -11,6 +11,18 @@
     ],
     "cleanUrls": true,
     "trailingSlash": false,
+    "redirects": [
+      {
+        "source": "/portal",
+        "destination": "https://practiceforceone.net/portal/",
+        "type": 301
+      },
+      {
+        "source": "/portal/**",
+        "destination": "https://practiceforceone.net/portal/",
+        "type": 301
+      }
+    ],
     "headers": [
       {
         "source": "**",
