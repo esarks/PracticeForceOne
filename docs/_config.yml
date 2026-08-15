@@ -1,0 +1,11 @@
+title: PracticeForceOne
+description: Platform, architecture and strategy documentation
+theme: jekyll-theme-cayman
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: false
+exclude:
+  - Gemfile
+  - Gemfile.lock
