@@ -6,6 +6,14 @@ title: "PracticeForceOne Documentation"
 
 Platform, architecture, clinical-workflow and commercial-strategy documentation for PracticeForceOne, and for JAC (Java Architects Companion), the toolchain it is built on.
 
+## 🩺 See the platform actually run
+
+### **[DLP Illustrated Walkthroughs](dlp/)**
+**A complete clinic day, walked against the live platform, photographed at every step.**
+Each walkthrough shows the patient's Kanban card as it rendered in a real browser after every action
+— portal registration through to the provider signing the note and the patient paying at the front
+desk. Written by the run, not by hand, and each page names the exact build it describes.
+
 ## ðŸ“š Core Documentation
 
 ### ðŸ“˜ [CLAUDE.md](CLAUDE.html)
