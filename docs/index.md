@@ -1,10 +1,10 @@
 ---
-title: "Home"
+title: "PracticeForceOne Documentation"
 ---
 
-# Welcome to the ArchitectsCompanion Wiki!
+# PracticeForceOne
 
-This wiki contains comprehensive documentation for JAC (Java Architects Companion) and the JAC-NEWGEN modernization initiative.
+Platform, architecture, clinical-workflow and commercial-strategy documentation for PracticeForceOne, and for JAC (Java Architects Companion), the toolchain it is built on.
 
 ## ðŸ“š Core Documentation
 
