@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LANE-MED-REVIEW-REGISTRATION — ReCenter Medical LLC — deep dive walkthrough</title>
+<style>
+:root{--bg:#fff;--fg:#16181d;--mut:#5b6472;--line:#e3e7ee;--card:#f7f9fc;--accent:#1f5fd8}
+@media (prefers-color-scheme:dark){:root{--bg:#101317;--fg:#e8ecf2;--mut:#9aa5b4;--line:#262c36;--card:#171b21;--accent:#7aa7ff}}
+:root[data-theme=dark]{--bg:#101317;--fg:#e8ecf2;--mut:#9aa5b4;--line:#262c36;--card:#171b21;--accent:#7aa7ff}
+:root[data-theme=light]{--bg:#fff;--fg:#16181d;--mut:#5b6472;--line:#e3e7ee;--card:#f7f9fc;--accent:#1f5fd8}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;margin:0;padding:2.2rem 1.2rem 5rem}
+main{max-width:940px;margin:0 auto}
+h1{font-size:1.65rem;line-height:1.25;margin:0 0 .35rem}
+h2{font-size:1.18rem;margin:2.4rem 0 .9rem;padding-bottom:.35rem;border-bottom:1px solid var(--line)}
+h3{font-size:1rem;margin:1.6rem 0 .5rem}
+.sub{color:var(--mut);font-size:.87rem;margin:0 0 1.4rem}
+.verdict{display:inline-block;padding:.3rem .7rem;border-radius:6px;font-weight:700;letter-spacing:.02em}
+.verdict.pass{background:#0d7a3d;color:#fff}.verdict.fail{background:#b3261e;color:#fff}
+.verdict.blocked{background:#8a6100;color:#fff}.verdict.other{background:#4a5160;color:#fff}
+.meta{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.9rem 1.1rem;margin:1.1rem 0}
+.meta div{margin:.18rem 0;font-size:.9rem}
+.meta b{font-weight:600}
+code,kbd{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:.06rem .32rem;font-size:.86em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.step{border:1px solid var(--line);border-radius:12px;margin:1.1rem 0;overflow:hidden;background:var(--card)}
+.step>header{display:flex;gap:.7rem;align-items:baseline;padding:.75rem 1rem;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.n{font-variant-numeric:tabular-nums;color:var(--mut);font-size:.82rem;min-width:1.9rem}
+.nm{font-weight:650;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.93rem}
+.badge{margin-left:auto;font-size:.72rem;font-weight:700;letter-spacing:.05em;padding:.16rem .5rem;border-radius:999px}
+.badge.pass{background:#0d7a3d;color:#fff}.badge.fail{background:#b3261e;color:#fff}
+.badge.blocked{background:#8a6100;color:#fff}.badge.skip{background:#4a5160;color:#fff}
+.badge.known{background:#6a4b8a;color:#fff}.badge.promote{background:#0b6a72;color:#fff}
+.badge.other{background:#4a5160;color:#fff}
+.body{padding:.85rem 1rem}
+.say{margin:0 0 .55rem}
+.detail{color:var(--mut);font-size:.88rem;margin:0;white-space:pre-wrap;word-break:break-word}
+figure{margin:.9rem 0 0;padding:0}
+figure img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:9px;background:#fff}
+figcaption{color:var(--mut);font-size:.8rem;margin-top:.4rem}
+.nocard{border:1px dashed var(--line);border-radius:9px;padding:.85rem 1rem;color:var(--mut);font-size:.87rem;background:transparent}
+.nocard b{color:var(--fg)}
+ul{padding-left:1.15rem}
+li{margin:.25rem 0}
+.scroll{overflow-x:auto}
+footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--mut);font-size:.82rem}
+</style>
+</head>
+<body>
+<main>
+<h1>LANE-MED-REVIEW-REGISTRATION — ReCenter Medical LLC — deep dive</h1>
+<p class="sub">lands in <code>review_registration</code> · board position 100 · generated 2026-08-15T23:46:56.304Z</p>
+<p><span class="verdict pass">PASS</span> &nbsp;reached review_registration — this lane precedes the encounter, so the landing is the assertion and inference correctly has nothing to say yet</p>
+<div class="meta">
+<div><b>Build under test</b> 2254 &nbsp;·&nbsp; <b>origin</b> <code>https://practiceforceone.net</code></div>
+<div><b>Patient</b> Delphine Okonjo (LANE-MED) · F · dob 1972-05-19</div>
+<div><b>Practice</b> ReCenter Medical LLC — deep dive <code>abdfaad9-deb5-463d-a9f9-b9ac6e0e1078</code></div>
+</div>
+<p><b>Story.</b> She registered on the portal last night. Nobody at the desk has accepted her yet, so she has no chart — that acceptance is the work this lane holds.</p>
+<h2>What this looks like in the clinic</h2>
+<p><b>Why they are here.</b> Fatigue and elevated blood pressure at home readings</p>
+<h2>Step by step — with the card as it rendered</h2>
+<p class="sub">Each image is the patient&rsquo;s Kanban card, re-read from the live board after that step and cut out of the page. The lane in the caption is the lane the card was actually sitting in — read from the DOM, not from the journey definition.</p>
+<section class="step">
+<header>
+<span class="n">1</span><span class="nm">journey.clearPrior</span>
+<span class="badge pass">PASS</span>
+</header>
+<div class="body">
+<p class="say">Clears anything left over from the last time this scenario was run, so the day starts clean.</p>
+<p class="detail">cleared 0 chart(s), 0 encounter(s), 0 appointment(s) from previous runs — this run's artifacts are LEFT IN PLACE for inspection</p>
+<div class="nocard"><b>No card image for this step.</b> no rendered card contains &quot;(LANE-MED-REVIEW-REGISTRATION)&quot; (board shows 122 cards)</div>
+</div></section>
+<section class="step">
+<header>
+<span class="n">2</span><span class="nm">board.progressTo</span>
+<span class="badge pass">PASS</span>
+</header>
+<div class="body">
+<p class="say">The visit is walked forward through the working day — registration, booking, arrival, rooming and the provider — stopping at the point this scenario is about.</p>
+<p class="detail">registered through the portal with 102 fields -&gt; patient confirmed their email — no chart yet: the registration is waiting for the front desk — stopped at the portal, awaiting the front desk's review</p>
+<div class="nocard"><b>No card image for this step.</b> no rendered card contains &quot;(LANE-MED-REVIEW-REGISTRATION)&quot; (board shows 124 cards)</div>
+</div></section>
+<section class="step">
+<header>
+<span class="n">3</span><span class="nm">board.landedIn</span>
+<span class="badge pass">PASS</span>
+</header>
+<div class="body">
+<p class="say">The patient is now sitting in the lane this scenario exists to demonstrate.</p>
+<p class="detail">on the board in `review_registration` — open the Kanban and see Delphine Okonjo (LANE-MED) there</p>
+<div class="nocard"><b>No card image for this step.</b> no rendered card contains &quot;(LANE-MED-REVIEW-REGISTRATION)&quot; (board shows 124 cards)</div>
+</div></section>
+<h2>Assertions</h2>
+<p class="sub"><i>None declared — this journey ends before the Documentation Engine has anything to evaluate.</i></p>
+<footer>
+Generated by <code>node bin/dlp.mjs LANE-MED-REVIEW-REGISTRATION --shots</code> against build 2254 at 2026-08-15T23:46:56.304Z.
+ Regenerated on every run — do not hand-edit; edit the journey definition instead.
+</footer>
+</main>
+</body>
+</html>
