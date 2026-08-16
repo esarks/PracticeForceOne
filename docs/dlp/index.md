@@ -14,11 +14,9 @@ details in them were observed on the deployed system as the journey executed.
 
 ## This corpus — build 2254 `ac440f629`
 
-**78 journeys · 72 PASS · 3 BLOCKED · 3 FAIL** — run 2026-08-16T00:35:51.110Z
+**86 journeys · 80 PASS · 3 BLOCKED · 3 FAIL** — run 2026-08-16T00:46:52.958Z
 
-**⏳ THIS RUN IS STILL IN PROGRESS.** Journeys marked `not yet run` have not been attempted, and whether the serving build held for the whole run has NOT yet been verified — do not read this as final one-build evidence.
-
-So far: **78 of 86 journeys have a verdict.** The rest are still queued.
+The serving build was verified **unmoved before, during and after** the run, so every page below describes ONE artifact rather than several.
 
 **Not-PASS verdicts in this run:**
 
@@ -28,6 +26,13 @@ So far: **78 of 86 journeys have a verdict.** The rest are still queued.
 - `FAIL` **DLP4J** — 1 step(s) failed
 - `BLOCKED` **DLP8** — 1 of 16 step verbs are not implemented in this engine yet
 - `FAIL` **DLP10** — 1 step(s) failed
+
+### ⚠ Intermittent on this build — two different verdicts, same artifact
+
+- **LANE-MED-AR-FOLLOW-UP** — corpus run `FAIL`, rerun `PASS`. 500 SERVER_ERROR on charge-review approval (claim creation) in the corpus run; succeeded on rerun ~1h later on the same build. Classified TRUE_WRITE_FAILURE: no claim persisted, card never left ready_for_coding.
+- **LANE-MED-PATIENT-NEEDS-SCHEDULE** — corpus run `PASS`, rerun `FAIL`. 500 DATA_ERROR on create-patient: "JAC data failure [READ] at com.claimsprocessing.data.PATIENTSCrud_Crud". Passed in the corpus run, failed on rerun on the same build.
+
+_Both verdicts were observed on build 2254. Neither is a stable result; these journeys are FLAKY on this build, not fixed and not broken._
 
 ## Why the pictures matter
 
@@ -103,7 +108,7 @@ is printed at the same visual weight as an image so a reader can judge which one
 
 ## ReCenter Oasis LLC
 
-*27 of 34 journeys have a generated page.*
+*34 of 34 journeys have a generated page.*
 
 - **`BLOCKED`** [**PROD-OASIS-01** — Sabine Achterberg (PROD-OASIS-01)](PROD-OASIS-01-ReCenter-Oasis.html) — lands in `ready_to_sign`. Sabine Achterberg is 41 and coming to Oasis for her first neurotoxin treatment for frown lines. _3 of 15 step verbs are not implemented in this engine yet_
 - `PASS` [**DLP2** — Marisol Reyes (DLP2)](DLP2-ReCenter-Oasis.html) — lands in `ready_for_coding`. Marisol Reyes, 34, books a neurotoxin appointment at the medspa.
@@ -131,14 +136,14 @@ is printed at the same visual weight as an image so a reader can judge which one
 - `PASS` [**LANE-OAS-REVIEW-REGISTRATION** — Ilse Vandenberg (LANE-OAS)](LANE-OAS-REVIEW-REGISTRATION-ReCenter-Oasis.html) — lands in `review_registration`. She booked herself in through the site last night for a first consultation.
 - `PASS` [**LANE-OAS-PATIENT-NEEDS-SCHEDULE** — Solange Petit (LANE-OAS)](LANE-OAS-PATIENT-NEEDS-SCHEDULE-ReCenter-Oasis.html) — lands in `patient_needs_schedule`. Her enquiry was accepted but no treatment date is booked.
 - `PASS` [**LANE-OAS-PATIENT-SCHEDULED** — Marnie Okafor (LANE-OAS)](LANE-OAS-PATIENT-SCHEDULED-ReCenter-Oasis.html) — lands in `patient_scheduled`. Booked for her neurotoxin appointment next week.
-- `not yet run` [**LANE-OAS-INSURANCE-EXCEPTION** — Delia Kowalczyk (LANE-OAS)](LANE-OAS-INSURANCE-EXCEPTION-ReCenter-Oasis.html) — lands in `insurance_exception`. A medical-necessity element on her file did not verify.
-- `not yet run` **LANE-OAS-PATIENT-ARRIVED** — Yuki Tanaka (LANE-OAS) _(no page generated yet — run with `--shots`)_ — lands in `patient_arrived`. She is here for her filler appointment and has not been taken through yet.
-- `not yet run` **LANE-OAS-READY-FOR-INTAKE** — Bettina Rossi (LANE-OAS) _(no page generated yet — run with `--shots`)_ — lands in `ready_for_intake`. Taken through to the room; her aesthetic history and contraindication screen are not finished.
-- `not yet run` **LANE-OAS-VISIT-IN-PROGRESS** — Camille Aubert (LANE-OAS) _(no page generated yet — run with `--shots`)_ — lands in `visit_in_progress`. The injector is with her now, mid-treatment.
-- `not yet run` **LANE-OAS-DOCUMENTATION-INCOMPLETE** — Noor Haddad (LANE-OAS) _(no page generated yet — run with `--shots`)_ — lands in `documentation_incomplete`. Her treatment record is not complete — the consent and the before photographs this procedure owes are still outstanding.
-- `not yet run` **LANE-OAS-READY-TO-SIGN** — Greta Lindholm (LANE-OAS) _(no page generated yet — run with `--shots`)_ — lands in `ready_to_sign`. Her treatment is finished and the record is waiting on the injector signature.
-- `not yet run` **LANE-OAS-CLINICAL-FOLLOW-UP** — Priya Raman (LANE-OAS) _(no page generated yet — run with `--shots`)_ — lands in `clinical_follow_up`. Two weeks after treatment she is owed a review — how the result settled, and whether a top-up is needed.
-- `not yet run` **LANE-OAS-BLOCKED-REVIEW** — Astrid Nyberg (LANE-OAS) _(no page generated yet — run with `--shots`)_ — lands in `blocked_review`. She did not come to her appointment.
+- `PASS` [**LANE-OAS-INSURANCE-EXCEPTION** — Delia Kowalczyk (LANE-OAS)](LANE-OAS-INSURANCE-EXCEPTION-ReCenter-Oasis.html) — lands in `insurance_exception`. A medical-necessity element on her file did not verify.
+- `PASS` [**LANE-OAS-PATIENT-ARRIVED** — Yuki Tanaka (LANE-OAS)](LANE-OAS-PATIENT-ARRIVED-ReCenter-Oasis.html) — lands in `patient_arrived`. She is here for her filler appointment and has not been taken through yet.
+- `PASS` [**LANE-OAS-READY-FOR-INTAKE** — Bettina Rossi (LANE-OAS)](LANE-OAS-READY-FOR-INTAKE-ReCenter-Oasis.html) — lands in `ready_for_intake`. Taken through to the room; her aesthetic history and contraindication screen are not finished.
+- `PASS` [**LANE-OAS-VISIT-IN-PROGRESS** — Camille Aubert (LANE-OAS)](LANE-OAS-VISIT-IN-PROGRESS-ReCenter-Oasis.html) — lands in `visit_in_progress`. The injector is with her now, mid-treatment.
+- `PASS` [**LANE-OAS-DOCUMENTATION-INCOMPLETE** — Noor Haddad (LANE-OAS)](LANE-OAS-DOCUMENTATION-INCOMPLETE-ReCenter-Oasis.html) — lands in `documentation_incomplete`. Her treatment record is not complete — the consent and the before photographs this procedure owes are still outstanding.
+- `PASS` [**LANE-OAS-READY-TO-SIGN** — Greta Lindholm (LANE-OAS)](LANE-OAS-READY-TO-SIGN-ReCenter-Oasis.html) — lands in `ready_to_sign`. Her treatment is finished and the record is waiting on the injector signature.
+- `PASS` [**LANE-OAS-CLINICAL-FOLLOW-UP** — Priya Raman (LANE-OAS)](LANE-OAS-CLINICAL-FOLLOW-UP-ReCenter-Oasis.html) — lands in `clinical_follow_up`. Two weeks after treatment she is owed a review — how the result settled, and whether a top-up is needed.
+- `PASS` [**LANE-OAS-BLOCKED-REVIEW** — Astrid Nyberg (LANE-OAS)](LANE-OAS-BLOCKED-REVIEW-ReCenter-Oasis.html) — lands in `blocked_review`. She did not come to her appointment.
 
 ## How to read one
 
